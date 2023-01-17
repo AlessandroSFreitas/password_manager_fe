@@ -1,19 +1,21 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Login from '@/components/Login.vue';
+import Greetings from '@/components/Greetings.vue';
+import SignUpLink from '@/components/SignUpLink.vue';
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <img alt="Vue logo" class="logo" src="./assets/pngegg.png" width="150" height="150" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <Greetings msg="Password Manager" />
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <Login />
+    <SignUpLink msg="Have you an account? Try sign up!" />
   </main>
 </template>
 
