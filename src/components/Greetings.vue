@@ -1,14 +1,18 @@
-<script setup lang="ts">
-defineProps<{
-  msg: string
-}>()
-</script>
-
 <template>
   <div class="greetings">
     <h3>{{ msg }}</h3>
   </div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent({
+    name: 'Greetings',
+    props: {
+        msg: String,
+    }
+})
+</script>
 
 <style scoped>
 h3 {

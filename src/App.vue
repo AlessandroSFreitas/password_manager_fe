@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import Login from './components/Login.vue';
-import HelloWorld from './components/HelloWorld.vue';
+import Login from '@/components/Login.vue';
+import Greetings from '@/components/Greetings.vue';
+import SignUpLink from '@/components/SignUpLink.vue';
 </script>
 
 <template>
@@ -8,13 +9,13 @@ import HelloWorld from './components/HelloWorld.vue';
     <img alt="Vue logo" class="logo" src="./assets/pngegg.png" width="150" height="150" />
 
     <div class="wrapper">
-      <HelloWorld msg="Password Manager" />
+      <Greetings msg="Password Manager" />
     </div>
   </header>
 
   <main>
     <Login />
-    <SignUpLink msg="Have you an account? Try signup!" />
+    <SignUpLink msg="Have you an account? Try sign up!" />
   </main>
 </template>
 
