@@ -33,3 +33,11 @@ a,
     padding: 0 2rem;
   }
 }
+
+#notifications {
+  position: absolute;
+  right: 0;
+  top: 3%;
+  padding: 37px;
+  z-index: 1;
+}

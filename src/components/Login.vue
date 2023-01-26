@@ -49,7 +49,12 @@ export default defineComponent({
     },
     methods: {
         async submit() {
-            await loginService.post(this.username, this.password)
+            const response = await loginService.post(this.username, this.password)
+
+            console.log(response.data)
+            return {
+                response
+            }
         }
     },
     async mounted() {
