@@ -44,6 +44,6 @@ export default defineComponent ({
 .notification {
     width: 300px;
     padding: 0px;
-    background-color: #181818;
+    background-color: #18181800;
 }
 </style>
