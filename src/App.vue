@@ -1,9 +1,3 @@
-<script setup lang="ts">
-import Login from '@/components/Login.vue';
-import Greetings from '@/components/Greetings.vue';
-import SignUpLink from '@/components/SignUpLink.vue';
-</script>
-
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="./assets/pngegg.png" width="150" height="150" />
@@ -18,6 +12,13 @@ import SignUpLink from '@/components/SignUpLink.vue';
     <SignUpLink msg="Have you an account? Try sign up!" />
   </main>
 </template>
+
+<script setup lang="ts">
+import Login from '@/components/Login.vue';
+import Greetings from '@/components/Greetings.vue';
+import SignUpLink from '@/components/SignUpLink.vue';
+import Notifications from '@/components/Notifications.vue';
+</script>
 
 <style scoped>
 header {

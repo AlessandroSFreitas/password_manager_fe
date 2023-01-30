@@ -18,7 +18,7 @@ class LoginService {
                 auth: { username: user, password: password },
             });
         } catch (error) {
-            console.log(error)
+            return { error }
         }
     }
 }

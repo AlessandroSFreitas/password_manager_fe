@@ -19,7 +19,8 @@
     "@fortawesome/vue-fontawesome": "^3.0.2",
     "axios": "^1.2.2",
     "bulma": "^0.9.4",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.2.1",

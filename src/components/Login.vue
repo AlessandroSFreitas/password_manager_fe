@@ -34,6 +34,9 @@
 import { defineComponent } from 'vue';
 import FontAwesomeIcons from '@/components/icons/FontAwesomeIcons.vue';
 import loginService from '@/services/login.service.js';
+import { store } from '@/store/index';
+import { NOTIFY } from '@/store/mutations-type';
+import { Notificationtype } from '@/interfaces/INotification';
 
 export default defineComponent({
     name: 'Login',
@@ -49,12 +52,37 @@ export default defineComponent({
     },
     methods: {
         async submit() {
-            await loginService.post(this.username, this.password)
+            const response = await loginService.post(this.username, this.password)
+
+            if (response.status === 200) {
+                this.notification_store.commit(NOTIFY, {
+                    title: 'Successfully login!',
+                    text: response.data,
+                    type: Notificationtype.SUCCESS
+                })
+            } else {
+                this.notification_store.commit(NOTIFY, {
+                    title: 'Opss!',
+                    text: response.error.response.data,
+                    type: Notificationtype.ERROR
+                })
+            }
+
+            return {
+                response
+            }
         }
     },
     async mounted() {
         await loginService.get()
-    }
+    },
+    setup() {
+        const notification_store = store
+
+        return {
+            notification_store
+        }
+    },
 })
 </script>
 
