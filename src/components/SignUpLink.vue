@@ -1,7 +1,6 @@
 <template>
     <div class="signup">
-        <!-- link para a pagina de signup -->
-        <a><p>{{ msg }}</p></a>
+        <router-link to="/signup">{{ msg }}</router-link>
     </div>
 </template>
 

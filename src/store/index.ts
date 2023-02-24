@@ -1,9 +1,9 @@
-import { createStore, Store, useStore as vuexUseStore } from 'vuex';
+import { createStore, Store } from 'vuex';
 import type { InjectionKey } from 'vue';
 import type { INotification } from '@/interfaces/INotification';
 import { NOTIFY } from './mutations-type';
 
-interface Estado {
+export interface Estado {
     notifications: INotification[]
 }
 
