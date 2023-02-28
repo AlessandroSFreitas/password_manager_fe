@@ -71,9 +71,11 @@ export default defineComponent ({
     },
     methods: {
         async submit() {
-            const response = await signUpService.post(this.username, this.password, this.confirm_password)
+            const response = await signUpService.post(
+                this.username, this.password, this.confirm_password
+            )
 
-            if (response.status === 200) {
+            if (response.status === 201) {
                 this.notif_store.commit(NOTIFY, {
                     title: 'Successfully user created!',
                     text: response.data,
