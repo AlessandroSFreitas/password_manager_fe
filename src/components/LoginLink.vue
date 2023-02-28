@@ -1,6 +1,6 @@
 <template>
-    <div class="signup">
-        <router-link to="/signup">{{ msg }}</router-link>
+    <div class="login">
+        <router-link to="/">{{ msg }}</router-link>
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent ({
-    name: 'SignUpLink',
+    name: 'LoginLink',
     props: {
         msg: String,
     }
@@ -16,7 +16,7 @@ export default defineComponent ({
 </script>
 
 <style scoped>
-.signup {
+.login {
     margin: auto;
     padding: 10px;
 }

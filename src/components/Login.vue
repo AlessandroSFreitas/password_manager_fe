@@ -1,48 +1,57 @@
 <template>
-    <div class="login">
-        <form @submit.prevent="submit">
-            <div class="field">
-                <p class="control has-icons-left has-icons-right">
-                    <input v-model="username" class="input" type="username" placeholder="Username">
-                    <span class="icon is-small is-left">
-                        <FontAwesomeIcons icon="fa-solid fa-user" />
-                    </span>
-                </p>
-            </div>
+    <TheWelcome />
+    <main>
+        <div class="login">
+            <form @submit.prevent="submit">
+                <div class="field">
+                    <p class="control has-icons-left has-icons-right">
+                        <input v-model="username" class="input" type="username" placeholder="Username">
+                        <span class="icon is-small is-left">
+                            <FontAwesomeIcons icon="fa-solid fa-user" />
+                        </span>
+                    </p>
+                </div>
 
-            <div class="field">
-                <p class="control has-icons-left">
-                    <input v-model="password" class="input" type="password" placeholder="Password">
-                    <span class="icon is-small is-left">
-                        <FontAwesomeIcons icon="fa-solid fa-lock" />
-                    </span>
-                </p>
-            </div>
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <input v-model="password" class="input" type="password" placeholder="Password">
+                        <span class="icon is-small is-left">
+                            <FontAwesomeIcons icon="fa-solid fa-lock" />
+                        </span>
+                    </p>
+                </div>
 
-            <div class="field">
-                <p class="control">
-                  <button class="button is-light">
-                    Login
-                  </button>
-                </p>
-            </div>
-        </form>
-    </div>
+                <div class="field">
+                    <p class="control">
+                    <button class="button is-light">
+                        Login
+                    </button>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <SignUpLink msg="Have you an account? Try sign up!" />
+    </main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+
 import FontAwesomeIcons from '@/components/icons/FontAwesomeIcons.vue';
 import loginService from '@/services/login.service.js';
-import { store } from '@/store/index';
+import { store } from '@/store';
 import { NOTIFY } from '@/store/mutations-type';
 import { Notificationtype } from '@/interfaces/INotification';
+import SignUpLink from '@/components/SignUpLink.vue';
+import TheWelcome from './TheWelcome.vue';
 
 export default defineComponent({
     name: 'Login',
     components: {
         FontAwesomeIcons,
+        SignUpLink,
         loginService,
+        TheWelcome,
     },
     data() {
         return {
@@ -55,14 +64,15 @@ export default defineComponent({
             const response = await loginService.post(this.username, this.password)
 
             if (response.status === 200) {
-                this.notification_store.commit(NOTIFY, {
+                this.notif_store.commit(NOTIFY, {
                     title: 'Successfully login!',
                     text: response.data,
                     type: Notificationtype.SUCCESS
                 })
+                this.$router.push({ path: '/home' });
             } else {
-                this.notification_store.commit(NOTIFY, {
-                    title: 'Opss!',
+                this.notif_store.commit(NOTIFY, {
+                    title: 'Opss! Something went wrong.',
                     text: response.error.response.data,
                     type: Notificationtype.ERROR
                 })
@@ -73,15 +83,10 @@ export default defineComponent({
             }
         }
     },
-    async mounted() {
-        await loginService.get()
-    },
     setup() {
-        const notification_store = store
+        const notif_store = store
 
-        return {
-            notification_store
-        }
+        return { notif_store }
     },
 })
 </script>
