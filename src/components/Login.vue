@@ -1,33 +1,37 @@
 <template>
-    <div class="login">
-        <form @submit.prevent="submit">
-            <div class="field">
-                <p class="control has-icons-left has-icons-right">
-                    <input v-model="username" class="input" type="username" placeholder="Username">
-                    <span class="icon is-small is-left">
-                        <FontAwesomeIcons icon="fa-solid fa-user" />
-                    </span>
-                </p>
-            </div>
+    <TheWelcome />
+    <main>
+        <div class="login">
+            <form @submit.prevent="submit">
+                <div class="field">
+                    <p class="control has-icons-left has-icons-right">
+                        <input v-model="username" class="input" type="username" placeholder="Username">
+                        <span class="icon is-small is-left">
+                            <FontAwesomeIcons icon="fa-solid fa-user" />
+                        </span>
+                    </p>
+                </div>
 
-            <div class="field">
-                <p class="control has-icons-left">
-                    <input v-model="password" class="input" type="password" placeholder="Password">
-                    <span class="icon is-small is-left">
-                        <FontAwesomeIcons icon="fa-solid fa-lock" />
-                    </span>
-                </p>
-            </div>
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <input v-model="password" class="input" type="password" placeholder="Password">
+                        <span class="icon is-small is-left">
+                            <FontAwesomeIcons icon="fa-solid fa-lock" />
+                        </span>
+                    </p>
+                </div>
 
-            <div class="field">
-                <p class="control">
-                  <button class="button is-light">
-                    Login
-                  </button>
-                </p>
-            </div>
-        </form>
-    </div>
+                <div class="field">
+                    <p class="control">
+                    <button class="button is-light">
+                        Login
+                    </button>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <SignUpLink msg="Have you an account? Try sign up!" />
+    </main>
 </template>
 
 <script lang="ts">
@@ -38,12 +42,16 @@ import loginService from '@/services/login.service.js';
 import { store } from '@/store';
 import { NOTIFY } from '@/store/mutations-type';
 import { Notificationtype } from '@/interfaces/INotification';
+import SignUpLink from '@/components/SignUpLink.vue';
+import TheWelcome from './TheWelcome.vue';
 
 export default defineComponent({
     name: 'Login',
     components: {
         FontAwesomeIcons,
+        SignUpLink,
         loginService,
+        TheWelcome,
     },
     data() {
         return {

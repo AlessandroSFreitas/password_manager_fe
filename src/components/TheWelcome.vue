@@ -6,26 +6,16 @@
       <Greetings msg="Password Manager" />
     </div>
   </header>
-
-  <main>
-    <Login />
-    <SignUpLink msg="Have you an account? Try sign up!" />
-  </main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-
-import Login from '@/components/Login.vue';
 import Greetings from '@/components/Greetings.vue';
-import SignUpLink from '@/components/SignUpLink.vue';
 
 export default defineComponent ({
     name: 'TheWelcome',
     components: {
-        Login,
         Greetings,
-        SignUpLink,
     },
 })
 </script>
