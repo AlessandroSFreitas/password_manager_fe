@@ -1,6 +1,6 @@
 <template>
     <nav>
-      <a href="#">
+      <a href="#/home">
         Home
         <spam></spam>
       </a>
