@@ -1,6 +1,6 @@
 <template>
     <nav>
-      <a href="#">
+      <a href="#/home">
         Home
         <spam></spam>
       </a>
@@ -40,7 +40,7 @@ nav {
 
 nav a {
   color: #ccc;
-  font-size: 20px;
+  font-size: 23px;
   transition: all 0.2s;
   display: inline-block;
 }
